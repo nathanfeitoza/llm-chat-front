@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Layout</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      background-color: #d3d3d3;
+      /* Fundo acinzentado */
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
+    }
+
+    .chat-container {
+      width: 100%;
+      /* Tamanho máximo do chat */
+      height: 100%;
+      /* Altura do chat */
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .chat-box {
+      background-color: transparent;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      width: 70%;
+    }
+
+    .chat-box-container {
+      width: 100%;
+      height: 0;
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chat-entry {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .user-question {
+      background-color: #747c85;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 15px;
+      max-width: 60%;
+      margin-left: auto;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .bot-response {
+      padding: 10px 15px;
+      background-color: transparent;
+      color: black;
+      max-width: 70%;
+      text-align: justify;
+      margin-left: 50px;
+      position: relative;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .response-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .textarea-container {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
+
+
+    .textarea-box {
+      display: flex;
+      width: 70%;
+    }
+
+    .textarea-container textarea {
+      resize: none;
+      flex: 1;
+      border: none;
+      padding: 10px;
+      outline: none;
+      border-radius: 0;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .textarea-container button {
+      background-color: #fff;
+      border: none;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 0 8px 8px 0px;
+    }
+
+    .textarea-container button i {
+      font-size: 1.2em;
+      color: #007bff;
+    }
+
+    .textarea-container textarea:focus,
+    .textarea-container button:focus {
+      border-color: transparent;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    pre code {
+      background-color: #f8f9fa; /* Cor de fundo do Bootstrap para `bg-light` */
+      border: 1px solid #ced4da; /* Borda leve */
+      padding: 15px; /* Espaçamento interno */
+      border-radius: 5px; /* Bordas arredondadas */
+      color: #212529; /* Texto escuro */
+      font-family: 'Courier New', Courier, monospace; /* Fonte de código */
+      display: block;
+      overflow-x: auto; /* Scroll horizontal para conteúdo longo */
+    }
+    
+    pre code.language-javascript {
+      color: #d63384; /* Customização específica para JavaScript */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="chat-container">
+    <div class="chat-box-container" id="chat-box-container">
+      <div class="chat-box" id="chat-box">
+        <!-- Perguntas e respostas aparecerão aqui -->
+      </div>
+    </div>
+    <div class="textarea-container">
+      <div class="textarea-box">
+        <textarea class="form-control" id="user-input" rows="2" placeholder="Digite sua pergunta..."></textarea>
+        <button class="btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
